@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var expressSanitizer = require("express-sanitizer");
+var expressSanitizer = require('express-sanitizer');
 var mongoose = require("mongoose");
 var methodOverride = require("method-override");
 var app = express();
@@ -50,7 +50,7 @@ app.get('/blogs/new',function(req,res){
 
 //CREATE
 app.post("/blogs",function(req,res){
-	req.body.blog.body = sanitize(req.body.blog.body);
+	req.body.blog.body = req.sanitize(req.body.blog.body);
 	Blog.create(req.body.blog,function(err,blog){
 		if(err){
 			console.log(err);
@@ -85,7 +85,7 @@ app.get('/blogs/:id/edit',function(req,res){
 
 //UPDATE
 app.put('/blogs/:id',function(req,res){
-	req.body.blog.body = sanitize(req.body.blog.body);
+	req.body.blog.body = req.sanitize(req.body.blog.body);
 	Blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,updatedBlog){
 		if(err){
 			res.redirect('/blogs');
