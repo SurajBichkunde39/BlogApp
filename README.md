@@ -3,7 +3,7 @@ Blog App following RESTful  convention.
 
 
 | Name       | Path           | HTTP Verb  |Purpose                                             |
-| -----------|:-------------: | ----------:|---------------------------------------------------:|
+| -----------|:-------------: | ----------:|----------------------------------------------------|
 | INDEX      | /blogs         |   GET      | List all blogs                                     |
 | NEW        | /blogs/new     |   GET      | Show new blog form                                 |
 | CREATE     | /blogs         |   POST     | Create new blog and redirect to all blogs          |
